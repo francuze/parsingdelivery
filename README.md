@@ -32,3 +32,5 @@
 - swagger-ui-express
 
 ### Пример![Аннотация 2022-11-05 170746](https://user-images.githubusercontent.com/49876179/200121465-0ec68eea-cddb-440e-a17c-d366b05d55ee.png)
+![Аннотация 2022-11-05 170906](https://user-images.githubusercontent.com/49876179/200121516-70e3d3d7-6b8f-4700-b922-7c374bc2cb7c.png)
+
