@@ -31,10 +31,12 @@
 						"type": "string"
 					},
 					"products": {
-						"type": "string"
+						"type": "string",
+						"description": "Продукты"
 					},
 					"answers": {
-						"type": "string"
+						"type": "string",
+						"description": "Ответы на отзыв"
 					}
 				},
 				"required": [

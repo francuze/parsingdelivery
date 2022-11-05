@@ -28,10 +28,15 @@ import {
 
     @Column()
     orderHash!: string;
-
+/**
+   * Продукты
+   * @example ['Бургер']
+   */
     @Column(`json`)
     products!: string;
-
+/**
+   * Ответы на отзыв
+   */
     @Column(`json`)
     answers!: string;
   }
