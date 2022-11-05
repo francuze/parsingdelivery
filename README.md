@@ -30,3 +30,5 @@
 - Express
 - TypeOrm(Mysql)
 - swagger-ui-express
+
+### Пример![Аннотация 2022-11-05 170746](https://user-images.githubusercontent.com/49876179/200121465-0ec68eea-cddb-440e-a17c-d366b05d55ee.png)
