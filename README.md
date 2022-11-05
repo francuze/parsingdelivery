@@ -3,6 +3,7 @@
 
 ### Запустить
 ```
+npm install
 docker-compose up 
 ```
 
