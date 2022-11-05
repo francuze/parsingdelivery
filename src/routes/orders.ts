@@ -15,7 +15,7 @@ router.get("/parser", async (_req, res) => {
 router.get("/parser/:id", async (req, res) => {
   const controller = new OrderController();
   const response = await controller.getParser(req.params.id);
-  if (!response) res.status(404).send({ message: "No user found" });
+  if (!response) return res.status(404).send({ message: "No order found" });
   return res.send(response);
 
 });

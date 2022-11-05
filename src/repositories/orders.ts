@@ -64,6 +64,8 @@ export const getParser = async (id: number): Promise<Order | null> => {
       id: id,
     },
   });
-  if (!user) return null;
+  
+  if (!user) return null
+
   return user;
 };
