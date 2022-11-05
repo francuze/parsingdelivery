@@ -1,0 +1,208 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Order": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"author": {
+						"type": "string"
+					},
+					"body": {
+						"type": "string"
+					},
+					"rating": {
+						"type": "string",
+						"description": "Рейтинг отзыва",
+						"example": "😊"
+					},
+					"time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"orderHash": {
+						"type": "string"
+					},
+					"products": {
+						"type": "string"
+					},
+					"answers": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"author",
+					"body",
+					"rating",
+					"time",
+					"orderHash",
+					"products",
+					"answers"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Orders": {
+				"properties": {
+					"rated": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"icon": {
+						"type": "string"
+					},
+					"body": {
+						"type": "string"
+					},
+					"author": {
+						"type": "string"
+					},
+					"rating": {
+						"type": "string",
+						"enum": [
+							"😊",
+							"😖"
+						],
+						"example": "😊"
+					},
+					"time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"orderHash": {
+						"type": "string"
+					},
+					"products": {
+						"type": "string"
+					},
+					"answers": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"rated",
+					"icon",
+					"body",
+					"author",
+					"time",
+					"orderHash",
+					"products",
+					"answers"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "parsing",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/parser": {
+			"get": {
+				"operationId": "GetParsers",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Order"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Получаем всех отзывы с фильтрации по дате и рейтингу",
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Parser",
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Order"
+								}
+							}
+						}
+					}
+				},
+				"description": "Парсим отзывы",
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Orders"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/parser/{id}": {
+			"get": {
+				"operationId": "GetParser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Order"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"description": "Получаем отзыв по ID",
+				"security": [],
+				"parameters": [
+					{
+						"description": "Ид",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
